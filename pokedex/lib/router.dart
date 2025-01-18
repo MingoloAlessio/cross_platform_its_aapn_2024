@@ -1,5 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:pokedex/logger.dart';
+import 'package:pokedex/src/pages/details_page.dart';
+import 'package:pokedex/src/pages/home_page.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 final router = GoRouter(
@@ -7,6 +9,18 @@ final router = GoRouter(
     TalkerRouteObserver(talker),
   ],
   routes: [
-    // TODO: add routes here...!
+    GoRoute(
+      path: '/',
+      name: 'home',
+      builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      path: '/details/:id',
+      name: 'details',
+      builder: (context, state) {
+        final param = state.pathParameters['id'];
+        return DetailsPage(param as int);
+    }
+    )
   ],
 );
