@@ -9,7 +9,7 @@ FutureOr<List<SnippetModel>> pokeList(PokeListRef ref)async {
   final api = ref.watch(pokemonApiProvider);
   final result = await api.getSnippet();
   
-  final models = result.map((value) {
+  final models = result.results.map((value) {
     final urlDiEsempio = value.url;
     final split = urlDiEsempio.split('/');
     final [..., id, _] = split;

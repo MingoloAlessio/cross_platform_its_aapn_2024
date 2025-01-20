@@ -25,7 +25,7 @@ mixin _$PokemonDetailsApiModel {
   String get name => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
   int get weight => throw _privateConstructorUsedError;
-  PokemonSpriteApiModel get image => throw _privateConstructorUsedError;
+  PokemonSpriteApiModel get sprites => throw _privateConstructorUsedError;
 
   /// Serializes this PokemonDetailsApiModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -48,9 +48,9 @@ abstract class $PokemonDetailsApiModelCopyWith<$Res> {
       String name,
       int height,
       int weight,
-      PokemonSpriteApiModel image});
+      PokemonSpriteApiModel sprites});
 
-  $PokemonSpriteApiModelCopyWith<$Res> get image;
+  $PokemonSpriteApiModelCopyWith<$Res> get sprites;
 }
 
 /// @nodoc
@@ -73,7 +73,7 @@ class _$PokemonDetailsApiModelCopyWithImpl<$Res,
     Object? name = null,
     Object? height = null,
     Object? weight = null,
-    Object? image = null,
+    Object? sprites = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -92,9 +92,9 @@ class _$PokemonDetailsApiModelCopyWithImpl<$Res,
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as int,
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
+      sprites: null == sprites
+          ? _value.sprites
+          : sprites // ignore: cast_nullable_to_non_nullable
               as PokemonSpriteApiModel,
     ) as $Val);
   }
@@ -103,9 +103,9 @@ class _$PokemonDetailsApiModelCopyWithImpl<$Res,
   /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
-  $PokemonSpriteApiModelCopyWith<$Res> get image {
-    return $PokemonSpriteApiModelCopyWith<$Res>(_value.image, (value) {
-      return _then(_value.copyWith(image: value) as $Val);
+  $PokemonSpriteApiModelCopyWith<$Res> get sprites {
+    return $PokemonSpriteApiModelCopyWith<$Res>(_value.sprites, (value) {
+      return _then(_value.copyWith(sprites: value) as $Val);
     });
   }
 }
@@ -124,10 +124,10 @@ abstract class _$$PokemonDetailsApiModelImplCopyWith<$Res>
       String name,
       int height,
       int weight,
-      PokemonSpriteApiModel image});
+      PokemonSpriteApiModel sprites});
 
   @override
-  $PokemonSpriteApiModelCopyWith<$Res> get image;
+  $PokemonSpriteApiModelCopyWith<$Res> get sprites;
 }
 
 /// @nodoc
@@ -149,7 +149,7 @@ class __$$PokemonDetailsApiModelImplCopyWithImpl<$Res>
     Object? name = null,
     Object? height = null,
     Object? weight = null,
-    Object? image = null,
+    Object? sprites = null,
   }) {
     return _then(_$PokemonDetailsApiModelImpl(
       id: null == id
@@ -168,9 +168,9 @@ class __$$PokemonDetailsApiModelImplCopyWithImpl<$Res>
           ? _value.weight
           : weight // ignore: cast_nullable_to_non_nullable
               as int,
-      image: null == image
-          ? _value.image
-          : image // ignore: cast_nullable_to_non_nullable
+      sprites: null == sprites
+          ? _value.sprites
+          : sprites // ignore: cast_nullable_to_non_nullable
               as PokemonSpriteApiModel,
     ));
   }
@@ -186,7 +186,7 @@ class _$PokemonDetailsApiModelImpl
       required this.name,
       required this.height,
       required this.weight,
-      required this.image});
+      required this.sprites});
 
   factory _$PokemonDetailsApiModelImpl.fromJson(Map<String, dynamic> json) =>
       _$$PokemonDetailsApiModelImplFromJson(json);
@@ -200,11 +200,11 @@ class _$PokemonDetailsApiModelImpl
   @override
   final int weight;
   @override
-  final PokemonSpriteApiModel image;
+  final PokemonSpriteApiModel sprites;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PokemonDetailsApiModel(id: $id, name: $name, height: $height, weight: $weight, image: $image)';
+    return 'PokemonDetailsApiModel(id: $id, name: $name, height: $height, weight: $weight, sprites: $sprites)';
   }
 
   @override
@@ -216,7 +216,7 @@ class _$PokemonDetailsApiModelImpl
       ..add(DiagnosticsProperty('name', name))
       ..add(DiagnosticsProperty('height', height))
       ..add(DiagnosticsProperty('weight', weight))
-      ..add(DiagnosticsProperty('image', image));
+      ..add(DiagnosticsProperty('sprites', sprites));
   }
 
   @override
@@ -228,12 +228,13 @@ class _$PokemonDetailsApiModelImpl
             (identical(other.name, name) || other.name == name) &&
             (identical(other.height, height) || other.height == height) &&
             (identical(other.weight, weight) || other.weight == weight) &&
-            (identical(other.image, image) || other.image == image));
+            (identical(other.sprites, sprites) || other.sprites == sprites));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, height, weight, image);
+  int get hashCode =>
+      Object.hash(runtimeType, id, name, height, weight, sprites);
 
   /// Create a copy of PokemonDetailsApiModel
   /// with the given fields replaced by the non-null parameter values.
@@ -258,7 +259,7 @@ abstract class _PokemonDetailsApiModel implements PokemonDetailsApiModel {
           required final String name,
           required final int height,
           required final int weight,
-          required final PokemonSpriteApiModel image}) =
+          required final PokemonSpriteApiModel sprites}) =
       _$PokemonDetailsApiModelImpl;
 
   factory _PokemonDetailsApiModel.fromJson(Map<String, dynamic> json) =
@@ -273,7 +274,7 @@ abstract class _PokemonDetailsApiModel implements PokemonDetailsApiModel {
   @override
   int get weight;
   @override
-  PokemonSpriteApiModel get image;
+  PokemonSpriteApiModel get sprites;
 
   /// Create a copy of PokemonDetailsApiModel
   /// with the given fields replaced by the non-null parameter values.

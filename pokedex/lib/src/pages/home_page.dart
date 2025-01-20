@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pokedex/src/providers/poke_list_provider.dart';
 
 class HomePage extends ConsumerWidget {
@@ -14,8 +15,21 @@ class HomePage extends ConsumerWidget {
           centerTitle: true,
           title: const Text("Pokedex"),
           actions: [
-            IconButton(onPressed: () => ref.invalidate(pokeListProvider), icon: const Icon(Icons.refresh)),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.favorite)),
+            SizedBox.square(
+              dimension: 40,
+              child: switch (list) {
+                AsyncData(isLoading: true) => const CircularProgressIndicator(),
+                _ => IconButton(
+                    onPressed: () {
+                      ref.invalidate(pokeListProvider);
+                    },
+                    icon: const Icon(Icons.refresh),
+                  )
+              },
+            ),
+            IconButton(onPressed: () {
+              context.pushNamed('saved');
+            }, icon: const Icon(Icons.favorite)),
           ],
         ),
         body: Padding(
@@ -26,10 +40,20 @@ class HomePage extends ConsumerWidget {
                 itemBuilder: (context, index) {
                   final pokemon = value[index];
                   return ListTile(
-                    onTap: () {},
-                    title: Text("${pokemon.id}. ${pokemon.name}"),
+                    onTap: () {
+                      context.pushNamed(
+                        'details',
+                        pathParameters: {"id": "${pokemon.id}"},
+                      );
+                    },
+                    title: Text("${pokemon.id} - ${pokemon.name}"),
                     trailing: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.pushNamed(
+                          'form',
+                          extra: pokemon,
+                        );
+                      },
                       icon: const Icon(Icons.save),
                     ),
                   );
@@ -37,8 +61,8 @@ class HomePage extends ConsumerWidget {
                 separatorBuilder: (context, index) => const Divider(),
               ),
             AsyncError() => const Center(
-                child: Text("C'è stao un problema"),
-              ),
+              child: Text("C'è stato un problema:"),
+            ),
             _ => const Center(
                 child: CircularProgressIndicator(),
               )

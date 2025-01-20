@@ -8,9 +8,16 @@ part of 'pokemon_snippet_api_model.dart';
 
 _$PokemonSnippetApiModelImpl _$$PokemonSnippetApiModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$PokemonSnippetApiModelImpl(
-      name: json['name'] as String,
-      url: json['url'] as String,
+    $checkedCreate(
+      r'_$PokemonSnippetApiModelImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$PokemonSnippetApiModelImpl(
+          name: $checkedConvert('name', (v) => v as String),
+          url: $checkedConvert('url', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$PokemonSnippetApiModelImplToJson(

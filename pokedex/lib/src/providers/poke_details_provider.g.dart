@@ -6,7 +6,7 @@ part of 'poke_details_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$pokeDetailsHash() => r'3ed4622abf73cd1eb31800f4a822194d786f6118';
+String _$pokeDetailsHash() => r'15e4667ba712291435f9f6df7bfdbd50f39bd7a7';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -40,10 +40,10 @@ class PokeDetailsFamily extends Family<AsyncValue<PokemonDetailsModel>> {
 
   /// See also [pokeDetails].
   PokeDetailsProvider call(
-    int i,
+    int id,
   ) {
     return PokeDetailsProvider(
-      i,
+      id,
     );
   }
 
@@ -52,7 +52,7 @@ class PokeDetailsFamily extends Family<AsyncValue<PokemonDetailsModel>> {
     covariant PokeDetailsProvider provider,
   ) {
     return call(
-      provider.i,
+      provider.id,
     );
   }
 
@@ -76,11 +76,11 @@ class PokeDetailsProvider
     extends AutoDisposeFutureProvider<PokemonDetailsModel> {
   /// See also [pokeDetails].
   PokeDetailsProvider(
-    int i,
+    int id,
   ) : this._internal(
           (ref) => pokeDetails(
             ref as PokeDetailsRef,
-            i,
+            id,
           ),
           from: pokeDetailsProvider,
           name: r'pokeDetailsProvider',
@@ -91,7 +91,7 @@ class PokeDetailsProvider
           dependencies: PokeDetailsFamily._dependencies,
           allTransitiveDependencies:
               PokeDetailsFamily._allTransitiveDependencies,
-          i: i,
+          id: id,
         );
 
   PokeDetailsProvider._internal(
@@ -101,10 +101,10 @@ class PokeDetailsProvider
     required super.allTransitiveDependencies,
     required super.debugGetCreateSourceHash,
     required super.from,
-    required this.i,
+    required this.id,
   }) : super.internal();
 
-  final int i;
+  final int id;
 
   @override
   Override overrideWith(
@@ -119,7 +119,7 @@ class PokeDetailsProvider
         dependencies: null,
         allTransitiveDependencies: null,
         debugGetCreateSourceHash: null,
-        i: i,
+        id: id,
       ),
     );
   }
@@ -131,13 +131,13 @@ class PokeDetailsProvider
 
   @override
   bool operator ==(Object other) {
-    return other is PokeDetailsProvider && other.i == i;
+    return other is PokeDetailsProvider && other.id == id;
   }
 
   @override
   int get hashCode {
     var hash = _SystemHash.combine(0, runtimeType.hashCode);
-    hash = _SystemHash.combine(hash, i.hashCode);
+    hash = _SystemHash.combine(hash, id.hashCode);
 
     return _SystemHash.finish(hash);
   }
@@ -146,8 +146,8 @@ class PokeDetailsProvider
 @Deprecated('Will be removed in 3.0. Use Ref instead')
 // ignore: unused_element
 mixin PokeDetailsRef on AutoDisposeFutureProviderRef<PokemonDetailsModel> {
-  /// The parameter `i` of this provider.
-  int get i;
+  /// The parameter `id` of this provider.
+  int get id;
 }
 
 class _PokeDetailsProviderElement
@@ -156,7 +156,7 @@ class _PokeDetailsProviderElement
   _PokeDetailsProviderElement(super.provider);
 
   @override
-  int get i => (origin as PokeDetailsProvider).i;
+  int get id => (origin as PokeDetailsProvider).id;
 }
 // ignore_for_file: type=lint
 // ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package

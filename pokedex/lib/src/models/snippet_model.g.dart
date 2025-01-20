@@ -7,9 +7,16 @@ part of 'snippet_model.dart';
 // **************************************************************************
 
 _$SnippetModelImpl _$$SnippetModelImplFromJson(Map<String, dynamic> json) =>
-    _$SnippetModelImpl(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
+    $checkedCreate(
+      r'_$SnippetModelImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$SnippetModelImpl(
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
+          name: $checkedConvert('name', (v) => v as String),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$SnippetModelImplToJson(_$SnippetModelImpl instance) =>

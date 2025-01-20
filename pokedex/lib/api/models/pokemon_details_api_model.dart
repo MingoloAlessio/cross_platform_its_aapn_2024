@@ -12,7 +12,7 @@ class PokemonDetailsApiModel with _$PokemonDetailsApiModel{
     required String name,
     required int height,
     required int weight,
-    required PokemonSpriteApiModel image,
+    required PokemonSpriteApiModel sprites,
   }) = _PokemonDetailsApiModel;
 factory PokemonDetailsApiModel.fromJson(Map<String, dynamic> json)
 => _$PokemonDetailsApiModelFromJson(json);

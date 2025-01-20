@@ -8,17 +8,26 @@ part of 'snippet_api_model.dart';
 
 _$SnippetApiModelImpl _$$SnippetApiModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$SnippetApiModelImpl(
-      count: (json['count'] as num).toInt(),
-      results: (json['results'] as List<dynamic>)
-          .map(
-              (e) => PokemonSnippetApiModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+    $checkedCreate(
+      r'_$SnippetApiModelImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$SnippetApiModelImpl(
+          count: $checkedConvert('count', (v) => (v as num).toInt()),
+          results: $checkedConvert(
+              'results',
+              (v) => (v as List<dynamic>)
+                  .map((e) => PokemonSnippetApiModel.fromJson(
+                      e as Map<String, dynamic>))
+                  .toList()),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$SnippetApiModelImplToJson(
         _$SnippetApiModelImpl instance) =>
     <String, dynamic>{
       'count': instance.count,
-      'results': instance.results,
+      'results': instance.results.map((e) => e.toJson()).toList(),
     };

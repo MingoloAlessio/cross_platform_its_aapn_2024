@@ -7,7 +7,7 @@ part 'http_client.g.dart';
 @riverpod
 Dio httpClient(HttpClientRef ref) {
   final options = BaseOptions(
-    baseUrl: 'https://pokeapi.co/api/v2/pokemon',
+    baseUrl: 'https://pokeapi.co/',
   );
   final client = Dio(options);
   ref.onDispose(client.close);

@@ -5,7 +5,8 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 part 'poke_details_provider.g.dart';
 
 @riverpod
-FutureOr<PokemonDetailsModel> pokeDetails(PokeDetailsRef ref,int i) {
+FutureOr<PokemonDetailsModel> pokeDetails(PokeDetailsRef ref,int id) async{
   final api = ref.watch(pokemonApiProvider);
-  return api.getDetails(id: i);
+  final model = await api.getDetails(id);
+  return model;
 }

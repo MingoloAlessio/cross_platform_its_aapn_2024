@@ -8,12 +8,20 @@ part of 'pokemon_sprite_api_model.dart';
 
 _$PokemonSpriteApiModelImpl _$$PokemonSpriteApiModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$PokemonSpriteApiModelImpl(
-      frontDefault: json['frontDefault'] as String,
+    $checkedCreate(
+      r'_$PokemonSpriteApiModelImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$PokemonSpriteApiModelImpl(
+          frontDefault: $checkedConvert('front_default', (v) => v as String),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'frontDefault': 'front_default'},
     );
 
 Map<String, dynamic> _$$PokemonSpriteApiModelImplToJson(
         _$PokemonSpriteApiModelImpl instance) =>
     <String, dynamic>{
-      'frontDefault': instance.frontDefault,
+      'front_default': instance.frontDefault,
     };

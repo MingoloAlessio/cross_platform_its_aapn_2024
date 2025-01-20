@@ -8,13 +8,20 @@ part of 'pokemon_details_api_model.dart';
 
 _$PokemonDetailsApiModelImpl _$$PokemonDetailsApiModelImplFromJson(
         Map<String, dynamic> json) =>
-    _$PokemonDetailsApiModelImpl(
-      id: (json['id'] as num).toInt(),
-      name: json['name'] as String,
-      height: (json['height'] as num).toInt(),
-      weight: (json['weight'] as num).toInt(),
-      image:
-          PokemonSpriteApiModel.fromJson(json['image'] as Map<String, dynamic>),
+    $checkedCreate(
+      r'_$PokemonDetailsApiModelImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$PokemonDetailsApiModelImpl(
+          id: $checkedConvert('id', (v) => (v as num).toInt()),
+          name: $checkedConvert('name', (v) => v as String),
+          height: $checkedConvert('height', (v) => (v as num).toInt()),
+          weight: $checkedConvert('weight', (v) => (v as num).toInt()),
+          sprites: $checkedConvert('sprites',
+              (v) => PokemonSpriteApiModel.fromJson(v as Map<String, dynamic>)),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$PokemonDetailsApiModelImplToJson(
@@ -24,5 +31,5 @@ Map<String, dynamic> _$$PokemonDetailsApiModelImplToJson(
       'name': instance.name,
       'height': instance.height,
       'weight': instance.weight,
-      'image': instance.image,
+      'sprites': instance.sprites.toJson(),
     };
