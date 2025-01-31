@@ -1,3 +1,7 @@
+import 'package:countries_and_flags/src/models/country_model.dart';
+import 'package:countries_and_flags/src/pages/details_page.dart';
+import 'package:countries_and_flags/src/pages/favourites_page.dart';
+import 'package:countries_and_flags/src/pages/home_page.dart';
 import 'package:go_router/go_router.dart';
 import 'logger.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -7,6 +11,22 @@ final router = GoRouter(
     TalkerRouteObserver(talker),
   ],
   routes: [
-    //
+    GoRoute(
+      path: '/',
+      name: 'home',
+      builder: (context, state) => const HomePage(),
+    ),
+    GoRoute(
+      path: '/details',
+      builder: (context, state) {
+        final country = state.extra as CountryModel;
+        return DetailsPage(country);
+      },
+    ),
+    GoRoute(
+      path: '/favourites',
+      name: 'favourites',
+      builder: (context, state) => const FavouritesPage(),
+    )
   ],
 );
